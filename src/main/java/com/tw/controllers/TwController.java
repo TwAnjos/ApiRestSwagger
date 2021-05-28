@@ -1,5 +1,8 @@
 package com.tw.controllers;
 
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,10 +18,40 @@ import io.swagger.annotations.ApiParam;
 @RestController
 @RequestMapping("/tw")
 public class TwController {
-	
-	@GetMapping(value = "/getTw")
-	public String getTw() {
-		return "PISÃO!!!!";
+
+	@Value("${testeVariavelDeAmbiente.teste1}")
+	private String testeVariavelDeAmbiente1;
+
+	@GetMapping(value = "/testeVariavelDeAmbiente")
+	public String testeVariavelDeAmbiente() {
+
+		String javaHome = System.getenv("JAVA_HOME");
+		String dbName = System.getenv("RDS_DB_NAME");
+		String userName = System.getenv("RDS_USERNAME");
+		String password = System.getenv("RDS_PASSWORD");
+		
+		String environmentid = System.getenv("elasticbeanstalk:environment-id");
+		String environmentname = System.getenv("environment-name");
+		String teste3 = System.getenv("teste3");
+		String tw = System.getenv("tw");
+		
+		Map<String, String> env = System.getenv();
+		
+		String testeVariavelDeAmbiente2 = System.getenv("testeVariavelDeAmbiente.teste2");
+
+		return "testeVariavelDeAmbiente = " + testeVariavelDeAmbiente1 +
+					" \n javaHome = " + javaHome +
+					" \n dbName = " + dbName +
+					" \n dbName = " + userName +
+					" \n password = " + password +
+					
+					" \n environmentid = " + environmentid +
+					" \n environmentname = " + environmentname +
+					" \n teste3 = " + teste3 +
+					" \n tw = " + tw + 					
+					" \n testeVariavelDeAmbiente2 = " + testeVariavelDeAmbiente2 +
+					"\n env = "+ env
+					;
 	}
 
 	@PostMapping(value = "/PostTw/{name}")
