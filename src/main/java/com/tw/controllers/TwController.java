@@ -21,7 +21,11 @@ public class TwController {
 
 	@Value("${testeVariavelDeAmbiente.teste1}")
 	private String testeVariavelDeAmbiente1;
-
+	
+	@Value("${testetw}")
+	private String testetw;
+	
+	
 	@GetMapping(value = "/testeVariavelDeAmbiente")
 	public String testeVariavelDeAmbiente() {
 
@@ -50,6 +54,7 @@ public class TwController {
 					" \n teste3 = " + teste3 +
 					" \n tw = " + tw + 					
 					" \n testeVariavelDeAmbiente2 = " + testeVariavelDeAmbiente2 +
+					" \n testetw = " + testetw +
 					"\n env = "+ env
 					;
 	}
