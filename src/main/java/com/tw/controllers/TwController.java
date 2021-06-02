@@ -37,7 +37,7 @@ public class TwController {
 		String environmentid = System.getenv("elasticbeanstalk:environment-id");
 		String environmentname = System.getenv("environment-name");
 		String teste3 = System.getenv("teste3");
-		String tw = System.getenv("AWSEBDBUser");
+		String tw = System.getenv("tw");
 		
 		Map<String, String> env = System.getenv();
 		
