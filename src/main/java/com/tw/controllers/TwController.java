@@ -19,12 +19,12 @@ import io.swagger.annotations.ApiParam;
 @RequestMapping("/tw")
 public class TwController {
 
-	@Value("${testeVariavelDeAmbiente.teste1}")
+	//@Value("${testeVariavelDeAmbiente.teste1}")
 	private String testeVariavelDeAmbiente1;
 	
-	@Value("${testetw}")
+	//@Value("${testetw}")
 	private String testetw;
-	
+
 	
 	@GetMapping(value = "/testeVariavelDeAmbiente")
 	public String testeVariavelDeAmbiente() {
@@ -57,6 +57,7 @@ public class TwController {
 					" \n testetw = " + testetw +
 					"\n env = "+ env
 					;
+					
 	}
 
 	@PostMapping(value = "/PostTw/{name}")
